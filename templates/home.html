@@ -7,7 +7,8 @@
         <div class="d-flex justify-content-center">
             <div class="text-center">
                 <h1 class="mx-auto my-0 text-uppercase">Beware</h1>
-                <h2 class="text-white-50 mx-auto mt-2 mb-5">short description of what it is.</h2>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5"> A way to stay safe in your travels.</h2>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5"> Research incidents and BEWARE.</h2> 
                 <a class="btn btn-primary" href="{{ url_for('login') }}">Log In to report an incident</a>
             </div>
         </div>
@@ -16,18 +17,38 @@
 {% endblock %}
 
 {% block features %}
+<section class="about-section text-center" id="about">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-white mb-4">About the service</h2>
+                        <p class="text-white-50">
+                            With Beware, you can feel safe no matter where your adventures take you.
+                            You can look up the location of your future travels, or even just your current location to stay up to date 
+                            with local incidents which have occurred in the area to facilitate your decision-making!
+                        </p>
+                    </div>
+                </div>
+                <img class="img-fluid" src="{{url_for('static', filename='ipad.png')}}" alt="..." />
+            </div>
+</section>
 <!-- Features-->
         <section class="projects-section bg-light" id="projects">
             <div class="container px-4 px-lg-5">
                 <!-- Features One Row-->
                 <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="{{url_for('static', filename='demo-image-01.jpg')}}" alt="..." /></div>
+                    <!-- previous image before change was demo-image-01 -->
+                    <div class="col-lg-6"><img class="img-fluid" src="{{url_for('static', filename='maps.jpg')}}" alt="..." /></div>
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
                                     <h4 class="text-white">Beware Map</h4>
-                                    <p class="mb-0 text-white-50">Description of Beware Map (discrimination, racial profiling, Bad customer service, Car accidents, Unwarranted police encounter)</p>
+                                    <p class="mb-0 text-white-50">
+                                        You can view incidents of various types. These types include crimes such as robbery/theft, housebreaking, and assault.
+                                        We also include reports of discrimination, racial profiling, bad customer service, car accidents, and unwarranted police encounters.
+                                        We use icons to keep your search simple.
+                                        </p>
                                     <hr class="d-none d-lg-block mb-0 ms-0" />
                                 </div>
                             </div>
@@ -36,13 +57,15 @@
                 </div>
                 <!-- Project Two Row-->
                 <div class="row gx-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="{{url_for('static', filename='demo-image-02.jpg')}}" alt="..." /></div>
+                    <!-- previous image before change was demo-image-02 -->
+                    <div class="col-lg-6"><img class="img-fluid" src="{{url_for('static', filename='city.jpg')}}" alt="..." /></div>
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Crime Map</h4>
-                                    <p class="mb-0 text-white-50">Description of crime map(robery, theft, housebreaking, assault, shoplifting)</p>
+                                    <h4 class="text-white">Reports</h4>
+                                    <p class="mb-0 text-white-50">As a member you can file your own reports about your experiences in an area.
+                                        With your help we can keep our world happy and safe!</p>
                                     <hr class="d-none d-lg-block mb-0 me-0" />
                                 </div>
                             </div>
