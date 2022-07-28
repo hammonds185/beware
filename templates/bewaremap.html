@@ -1,7 +1,6 @@
 {% extends 'layout.html' %}
 
 {% block bewaremap %}
-<script async src={{url}}></script>
 <script type="text/javascript">
 var map;
 function initMap() {
@@ -26,4 +25,8 @@ map =  new google.maps.Map(document.getElementById('map'), {
         </div>
     </div>
 </header>
+{% endblock %}
+
+{% block url %}
+<script async src={{url}}></script>
 {% endblock %}
