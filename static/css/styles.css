@@ -11557,6 +11557,42 @@ body {
   border: 0;
 }
 
+.mastheadformap {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 10rem;
+  padding: 15rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-masthead.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+.custom-map-control-button {
+    cursor: pointer;
+    direction: ltr;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-family: "Roboto", Arial, sans-serif;
+    -webkit-user-select: none;
+    font-size: 20px !important;
+    background-color: rgb(255, 255, 255);
+    padding: 1px 6px;
+    border-radius: 4px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.14902);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+    min-width: 28px;
+    min-height: 40px;
+    font-weight: 475;
+    margin-top: 10px;
+}
+
 .masthead {
   position: relative;
   width: 100%;
@@ -11571,7 +11607,7 @@ body {
 }
 .masthead h1, .masthead .h1 {
   font-family: 'JetBrains Mono',"Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
   background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
