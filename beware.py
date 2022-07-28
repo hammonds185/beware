@@ -9,11 +9,7 @@ def configure():
 
 @app.route("/")
 def home():
-    return render_template('home.html') 
-
-@app.route("/crimemap")
-def crime_map():
-    return render_template('crimemap.html', latitude = 0, longitude = 0, url = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap") 
+    return render_template('home.html')  
 
 @app.route("/bewaremap")
 def beware_map():
