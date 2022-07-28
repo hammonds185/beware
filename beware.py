@@ -13,11 +13,11 @@ def home():
 
 @app.route("/crimemap")
 def crime_map():
-    return render_template('crimemap.html') 
+    return render_template('crimemap.html', latitude = 0, longitude = 0, url = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap") 
 
 @app.route("/bewaremap")
 def beware_map():
-    return render_template('bewaremap.html') 
+    return render_template('bewaremap.html', latitude = 0, longitude = 0, url = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap") 
 
 @app.route("/login")
 def login():
