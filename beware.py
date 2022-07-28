@@ -1,6 +1,11 @@
 from flask import Flask, render_template, abort, request, flash
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
+
+def configure():
+    load_dotenv()
 
 @app.route("/")
 def home():
@@ -26,6 +31,6 @@ def profile():
 def report():
     return render_template('report.html')
 
-if __name__ == '__main__':
-    # configure()
+if __name__ == '__main__': 
+    configure()
     app.run(debug=True, host="0.0.0.0")
