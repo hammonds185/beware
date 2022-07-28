@@ -1,5 +1,18 @@
 {% extends 'layout.html' %}
 
+{% block bewaremap %}
+<script async src={{url}}></script>
+<script type="text/javascript">
+var map;
+function initMap() {
+map =  new google.maps.Map(document.getElementById('map'), {
+        center: {lat: {{ latitude }}, lng:  {{ longitude }}},
+        zoom: 16
+    }); 
+}
+</script>
+{% endblock %}
+
 {% block masthead %} 
 <!-- Masthead-->
 <header class="masthead">
