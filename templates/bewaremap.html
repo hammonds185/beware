@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block bewaremap %}
+<div style="margin-top: -8em;">
 <script type="text/javascript">
     var map;
     function initMap() {
@@ -45,6 +46,7 @@
         infoWindow.open(map);
         }
 </script>
+</div>
 {% endblock %}
 
 {% block masthead %} 
@@ -57,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div id="map" style="width:90%; height:700px; border-radius:4px; display: block; margin-left: auto; margin-right: auto;"></div>
+    <div id="map"></div>
 </header>
 {% endblock %}
 
