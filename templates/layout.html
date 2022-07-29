@@ -16,6 +16,9 @@
         <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
         <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
         
+
+        {% block input %} {% endblock %}
+
         {% block bewaremap %} {% endblock %}
         
         
@@ -41,6 +44,7 @@
 
         {% block masthead %} {% endblock %}
         {% block url %} {% endblock %}
+        
         <!-- About
         <section class="about-section text-center" id="about">
             <div class="container px-4 px-lg-5">

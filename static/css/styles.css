@@ -11752,3 +11752,9 @@ body {
   margin-right: auto;
   margin-bottom: -200px;
 }
+
+.addy {
+  text-align: center;
+  width: 500px;
+  height: 50px;
+}

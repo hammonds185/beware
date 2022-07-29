@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from __init__ import app, db, bcrypt
 from forms import *
 from model import *
+import requests
 import os
 
 def configure():
@@ -13,8 +14,28 @@ def home():
     return render_template('home.html')  
 
 @app.route("/bewaremap")
+def first_map():
+    # default map is NY
+    return render_template('bewaremap.html', latitude = 40.7128, longitude = 74.0060, url = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap")
+
+@app.route("/bewaremap", methods=['POST', 'GET'])
 def beware_map():
-    return render_template('bewaremap.html', latitude = 0, longitude = 0, url = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap") 
+    address = request.form["location"]
+    params = {
+        'key': os.getenv('API_KEY'),
+        'address': address
+    }
+    base_url = 'https://maps.googleapis.com/maps/api/geocode/json?'
+    response = requests.get(base_url, params=params)
+    data = response.json()
+    if data['status'] == 'OK':
+        result = data['results'][0]
+        location = result['geometry']['location']
+        LAT = location['lat']
+        LNG = location['lng']
+    else:
+        return "address is invalid"
+    return render_template('bewaremap.html', latitude = LAT, longitude = LNG, url = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap") 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
