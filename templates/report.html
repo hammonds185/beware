@@ -2,14 +2,96 @@
 
 {% block masthead %} 
 <!-- Masthead-->
+<style>
+</style>
 <header class="masthead">
     <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
-            <div class="text-center">
-                <h1 class="mx-auto my-0 text-uppercase">Report</h1>
-                <h2 class="text-white-50 mx-auto mt-2 mb-5">short description of what it is.</h2>
+            <div class="text-center" ">
+                <h1 class="mx-auto my-0 text-uppercase">NEW Report</h1>
+                <form class="form-horizontal" style="color:white; text-align:left;">
+                  <fieldset>
+                  <!-- Search input-->
+                  <div class="form-group">
+                    <label class="control-label" for="Where?">Where?</label>
+                    <div class="col-md-8" >
+                      <input id="Where?" name="Where?" type="search" placeholder="123 Sesame Street" class="form-control input-md" required="required" aria-required="true" style="width:100%;>
+                    </div>
+                  </div>
+
+                  <!-- Multiple Radios (inline) -->
+                  <div class="form-group">
+                    <label class="control-label" for="type">Type?</label>
+                    <div class="incident-types" style="width:auto margin-left:10px; margin-right:10px;"> 
+                      <label class="radio-inline" for="type-0">
+                        <input type="radio" name="type" id="type-0" value="Discrimination" checked="checked">
+                        Discrimination
+                      </label> 
+                      <label class="radio-inline" for="type-1">
+                        <input type="radio" name="type" id="type-1" value="Racial Profiling">
+                        Racial Profiling
+                      </label> 
+                      <label class="radio-inline" for="type-2">
+                        <input type="radio" name="type" id="type-2" value="Bad Customer Service">
+                        Bad Customer Service
+                      </label> 
+                      <label class="radio-inline" for="type-3">
+                        <input type="radio" name="type" id="type-3" value="Car Accident">
+                        Car Accident
+                      </label> 
+                      <br>
+                      <label class="radio-inline" for="type-4">
+                        <input type="radio" name="type" id="type-4" value="Robbery/ Theft">
+                        Robbery/ Theft
+                      </label> 
+                      <label class="radio-inline" for="type-5">
+                        <input type="radio" name="type" id="type-5" value="House Breaking">
+                        House Breaking
+                      </label> 
+                      <label class="radio-inline" for="type-6">
+                        <input type="radio" name="type" id="type-6" value="Assault">
+                        Assault
+                      </label>  
+                      <label class="radio-inline" for="type-7">
+                        <input type="radio" name="type" id="type-8" value="Unwarranted Police Encounter">
+                        Unwarranted Police Encounter
+                      </label>
+                    </div>
+                  </div>
+                  <!-- Date -->
+                  <div class="formbuilder-date form-group field-date">
+                    <label for="date" class="formbuilder-date-label">When<span class="formbuilder-required"></span></label>
+                    <input type="date" class="date" name="date" access="false" id="date" required="required" aria-required="true">
+                  </div>
+                  <!-- Textarea -->
+                  <div class="form-group">
+                    <label class="control-label" for="description">Description</label>
+                    <div class="col-md-4">                     
+                      <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                  </div>
+
+                  <!-- Button -->
+                  <div class="form-group">
+                    <label class="control-label" for="Submit"></label>
+                    <div class="col-md-4">
+                      <button id="Submit" name="Submit" class="btn btn-inverse">Submit</button>
+                    </div>
+                  </div>
+                  <!-- Back To Profile Button -->
+                  <div class="form-group">
+                    <label class="control-label" for="Submit"></label>
+                    <div class="col-md-4">
+                      <button id="Back" name="Back" class="btn btn-inverse">Back to Profile</button>
+                    </div>
+                  </div>
+
+                  </fieldset>
+                </form>
             </div>
         </div>
     </div>
+
+
 </header>
 {% endblock %}

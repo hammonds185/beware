@@ -1,5 +1,18 @@
 {% extends 'layout.html' %}
 
+{% block input %}
+<script>
+    let autocomplete;
+    function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(document.getElementById("input"), 
+        {
+            componentRestrictions: {'country': ['us']},
+            fields: ['plae_id', 'geometry', 'name']
+        });
+    }
+</script>
+{% endblock %}
+
 {% block bewaremap %}
 <script type="text/javascript">
 
@@ -116,7 +129,13 @@
             </div>
         </div>
     </div>
-    <div id="map" style="width:90%; height:700px; border-radius:4px; display: block; margin-left: auto; margin-right: auto;"></div>
+    <div style="margin: 50px; text-align: center;">
+        <form method="POST">
+            <input id = "input" class="addy" placeholder = "Enter a Location" type = 'text' name="location">   
+        </form>
+    </div>
+    <div id="map" style="width:90%; height:700px; border-radius:4px; display: block; margin-left: 50px; margin-right: 50px;"></div>
+
 </header>
 {% endblock %}
 
