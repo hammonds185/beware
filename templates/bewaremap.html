@@ -16,12 +16,67 @@
 {% block bewaremap %}
 <div style="margin-top: -8em;">
 <script type="text/javascript">
+
+// All icon types for the markers
+    var iconBase =
+    'https://maps.google.com/mapfiles/kml/';
+    var icons = {
+    robbery: {
+      icon: iconBase + "shapes/dollar.png",
+    },
+    housebreaking: {
+      icon: iconBase + "shapes/homegardenbusiness.png",
+    },
+    police: {
+      icon: iconBase + "shapes/police.png",
+    },
+    discrimination: {
+      icon: "/static/scale.png",
+    },
+    racial_profiling: {
+      icon:iconBase +"shapes/caution.png" ,
+    },
+    customer_service: {
+      icon:"/static/customer.png" ,
+    },
+    car_accident: {
+      icon: iconBase + "pal4/icon15.png",
+    },
+    assault: {
+      icon: "/static/punch.png",
+    },
+  };
+  
     var map;
     function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
             center: { lat:40.712, lng:-74.006 },
             zoom: 12,
         });
+
+
+        // test markers
+        var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.71296489548469, -74.00623338293839),
+        map: map,
+        icon: {url:icons["assault"].icon, scaledSize: new google.maps.Size(40,40)},
+        
+        });
+        var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.70, -74.00623338293839),
+        map: map,
+        icon: {url:icons["robbery"].icon, scaledSize: new google.maps.Size(40,40)},
+        
+        });
+
+        var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.70, -74.01623338293839),
+        map: map,
+        icon: {url:icons["discrimination"].icon, scaledSize: new google.maps.Size(40,40)},
+        
+        });
+        // end of marker test
+
         infoWindow = new google.maps.InfoWindow();
         marker = new google.maps.Marker({map});
         const locationButton = document.createElement("button");
@@ -48,6 +103,7 @@
                 handleLocationError(false, infoWindow, map.getCenter());
             }
         });
+        
         }
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -57,7 +113,10 @@
             : "Error: Your browser doesn't support geolocation."
         );
         infoWindow.open(map);
+        
         }
+
+
 </script>
 </div>
 {% endblock %}
