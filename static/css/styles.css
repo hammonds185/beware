@@ -2996,6 +2996,13 @@ textarea.form-control-lg {
   z-index: 3;
 }
 
+.form-group {
+  justify-content: space-between;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -11734,6 +11741,16 @@ body {
 
 .footer {
   padding: 5rem 0;
+}
+
+#map {
+  width:95%; 
+  height:700px; 
+  border-radius:4px; 
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto;
+  margin-bottom: -200px;
 }
 
 .addy {

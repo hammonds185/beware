@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block bewaremap %}
+<div style="margin-top: -8em;">
 <script type="text/javascript">
     var map;
     function initMap() {
@@ -58,6 +59,7 @@
         infoWindow.open(map);
         }
 </script>
+</div>
 {% endblock %}
 
 {% block masthead %} 
@@ -70,12 +72,13 @@
             </div>
         </div>
     </div>
+    
     <div style="margin: 50px; text-align: center;">
         <form method="POST">
             <input id = "input" class="addy" placeholder = "Enter a Location" type = 'text' name="location">   
         </form>
     </div>
-    <div id="map" style="width:90%; height:700px; border-radius:4px; display: block; margin-left: 50px; margin-right: 50px;"></div>
+    <div id="map"></div>
 
 </header>
 {% endblock %}
