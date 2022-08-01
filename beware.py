@@ -86,7 +86,7 @@ def register():
 @app.route("/myprofile")
 def profile():
     if session.get('username'):
-        return render_template('profile.html', values = Report.query.all()) 
+        return render_template('profile.html', user_reports= Report.query.filter_by(username=session['username']).all(), username= session['username']) 
     else:
         return redirect(url_for('home'))
 
@@ -130,12 +130,11 @@ def report():
             db.session.add(report)
             db.session.commit()
             #### for me and my confirmation only ####
-
             print(report)
             print(Report.query.all())
             #### end for me and my confirmation only. ####
             # open profile page when successful
-            return render_template('profile.html', values=Report.query.all(), user_reports= Report.query.filter_by(username='peter').all())
+            return render_template('profile.html', user_reports= Report.query.filter_by(username=session['username']).all(), username= session['username'])
         return render_template('report.html', autocomplete_src = autocomplete_src, values = Report.query.all())
     else:
         return redirect(url_for('home'))
