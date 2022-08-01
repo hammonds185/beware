@@ -5,6 +5,7 @@ from forms import *
 from model import *
 import requests
 import os
+from datetime import datetime
 
 def configure():
     load_dotenv()
@@ -78,8 +79,34 @@ def register():
 def profile():
     return render_template('profile.html') 
 
-@app.route("/report")
-def report():
+@app.route("/report", methods=['POST', 'GET'])
+def report():    
+    if request.method == "POST":
+        #get info from form
+        where = request.form.get("where")
+        thetype = request.form.get("type")
+        date = request.form.get("date")
+        description = request.form.get("description")
+        #make datetime object
+        dto = datetime.strptime(date, '%Y-%m-%d').date()
+        # create report for database
+        report = Report(address = where, incident = thetype, date = dto, description = description)
+        #### for me and my confirmation only ####
+        print(request.form.get("where"))
+        print(request.form.get("type"))
+        print(request.form.get("date"))
+        print(request.form.get("description"))
+        #### end for me and my confirmation only. ####
+        # add and commit ot database
+        db.session.add(report)
+        db.session.commit()
+        #### for me and my confirmation only ####
+        print(request.form.get("description"))
+        print(report)
+        print(Report.query.all())
+        #### end for me and my confirmation only. ####
+        # open profile page when successful
+        return render_template('profile.html', values=Report.query.all())
     return render_template('report.html')
 
 if __name__ == '__main__': 
