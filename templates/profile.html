@@ -31,15 +31,38 @@
     <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
             <div class="text-center">
-                <h1 class="mx-auto my-0 text-uppercase">Profile</h1>
-                <h2 class="text-white-50 mx-auto mt-2 mb-5">This is where you can view your past reports and file a new report.</h2>
-                <a class="btn btn-primary" href="{{ url_for('report') }}">Click to report an incident</a>
-                <!-- list reports for courtney testing purposes only-->
-                {% for item in values %}
-                    <p>Location of incident was {{item.address}}: {{item.latitude}}, {{item.longitude}}</p>
-                {% endfor %}
+                <h1 class="mx-auto my-0 text-uppercase">{{username}}</h1>
+                
+                <!-- list reports for courtney testing purposes only-->  
+                <div class="user-report-table" >
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Your Reported Incidents</h2>
+                    <ul class="responsive-table">
+                        <li class="table-header">
+                        <div class="col col-1">Date</div>
+                        <div class="col col-2">Incident Type</div>
+                        <div class="col col-3">Address</div>
+                        <div class="col col-4">Description</div>
+                        <div class="col col-5">Delete</div>
+                        </li>
+                        {% for item in user_reports %}
+                        <li class="table-row">
+                        <div class="col col-1" data-label="Date">{{item.date}}</div>
+                        <div class="col col-2" data-label="Incident">{{item.incident}}</div>
+                        <div class="col col-3" data-label="Address">{{item.address}}</div>
+                        <div class="col col-4" data-label="Descrption">{{item.description}}</div>
+                        <button type="button" class="delete" onclick="alert('Will Delete')">X</button></span></a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </div> 
+    <a class="btn btn-primary" style="margin: 0;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);" href="{{ url_for('report') }}">Click to report an incident</a>
 </header>
 {% endblock %}
