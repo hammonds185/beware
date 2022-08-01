@@ -17,7 +17,7 @@ class Report(db.Model):
     description = db.Column(db.String(500), nullable=False)
     latitude = db.Column(db.String(10), nullable=False)
     longitude = db.Column(db.String(10), nullable=False)
-    username = db.Column(db.String(20), unique=True, nullable=False)
+    username = db.Column(db.String(20), nullable=False)
     
     def __repr__(self):
         return f"Report('{self.address}', '{self.incident}','{self.date}', '{self.description}', '{self.latitude}', '{self.longitude}', '{self.username}')"
