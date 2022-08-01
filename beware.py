@@ -19,7 +19,7 @@ def home():
 @app.route("/bewaremap")
 def first_map():
     # default map is NY
-    return render_template('bewaremap.html', latitude = 40.7128, longitude = 74.0060, url = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap")
+    return render_template('bewaremap.html', latitude = 40.7128, longitude = 74.0060, url = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap", values = Report.query.all())
 
 @app.route("/bewaremap", methods=['POST', 'GET'])
 def beware_map():
@@ -38,7 +38,7 @@ def beware_map():
         LNG = location['lng']
     else:
         return "address is invalid"
-    return render_template('bewaremap.html', latitude = LAT, longitude = LNG, url = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap") 
+    return render_template('bewaremap.html', latitude = LAT, longitude = LNG, url = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap",values = Report.query.all()) 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
