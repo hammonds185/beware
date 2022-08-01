@@ -48,7 +48,7 @@ def login():
         password=form.password.data
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
-            flash(f'Logging you in', 'success')
+            #flash(f'Logging you in', 'success')
             session['username'] = user.username
             return redirect(url_for('profile'))
         else:
