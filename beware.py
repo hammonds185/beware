@@ -8,8 +8,11 @@ import requests
 import os
 from datetime import datetime
 
-autocomplete_src = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&libraries=places&callback=initAutocomplete"
-map_src = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap"
+API_KEY = os.getenv('API_KEY')
+if API_KEY == None:
+    API_KEY = ""
+autocomplete_src = "https://maps.googleapis.com/maps/api/js?key=" + API_KEY + "&libraries=places&callback=initAutocomplete"
+map_src = "https://maps.googleapis.com/maps/api/js?key=" + API_KEY + "&callback=initMap"
 
 def configure():
     load_dotenv()
