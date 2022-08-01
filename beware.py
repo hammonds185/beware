@@ -8,6 +8,8 @@ import requests
 import os
 from datetime import datetime
 
+autocomplete_src = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&libraries=places&callback=initAutocomplete"
+map_src = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap"
 
 def configure():
     load_dotenv()
@@ -19,7 +21,7 @@ def home():
 @app.route("/bewaremap")
 def first_map():
     # default map is NY
-    return render_template('location.html', autocomplete_src = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&libraries=places&callback=initAutocomplete",values = Report.query.all())
+    return render_template('location.html', autocomplete_src = autocomplete_src, values = Report.query.all())
 
 @app.route("/bewaremap", methods=['POST', 'GET'])
 def beware_map():
@@ -36,12 +38,9 @@ def beware_map():
         location = result['geometry']['location']
         LAT = location['lat']
         LNG = location['lng']
-        print("LAT and LNG")
-        print(LAT)
-        print(LNG)
     else:
         return "address is invalid"
-    return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap",values = Report.query.all()) 
+    return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.all()) 
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -134,7 +133,7 @@ def report():
             #### end for me and my confirmation only. ####
             # open profile page when successful
             return render_template('profile.html', values=Report.query.all(), user_reports= Report.query.filter_by(username='peter').all())
-        return render_template('report.html')
+        return render_template('report.html', autocomplete_src = autocomplete_src, values = Report.query.all())
     else:
         return redirect(url_for('home'))
 
