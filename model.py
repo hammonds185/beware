@@ -9,6 +9,16 @@ class User(db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
+class Report(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    address = db.Column(db.String(200), nullable=False)
+    incident = db.Column(db.String(50), nullable=False)
+    date = db.Column(db.Date(), nullable=False)
+    description = db.Column(db.String(500), nullable=False)
+    
+    def __repr__(self):
+        return f"Report('{self.address}', '{self.incident}','{self.date}', '{self.description}')"
+    
 
 # db.drop_all()
 db.create_all()
