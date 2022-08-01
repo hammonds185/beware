@@ -15,10 +15,13 @@ class Report(db.Model):
     incident = db.Column(db.String(50), nullable=False)
     date = db.Column(db.Date(), nullable=False)
     description = db.Column(db.String(500), nullable=False)
+    latitude = db.Column(db.String(10), nullable=False)
+    longitude = db.Column(db.String(10), nullable=False)
+    username = db.Column(db.String(20), unique=True, nullable=False)
     
     def __repr__(self):
-        return f"Report('{self.address}', '{self.incident}','{self.date}', '{self.description}')"
+        return f"Report('{self.address}', '{self.incident}','{self.date}', '{self.description}', '{self.latitude}', '{self.longitude}', '{self.username}')"
     
 
-# db.drop_all()
+#db.drop_all()
 db.create_all()
