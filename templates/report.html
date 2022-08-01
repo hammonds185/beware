@@ -3,13 +3,29 @@
 {% block masthead %} 
 <!-- Masthead-->
 <style>
+  header {
+    height: 75% !important;
+  }
+
+  textarea {
+    width: 300px !important;
+    height: 75px;
+    resize: none;
+  }
+
+  .btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
 </style>
 <header class="masthead">
     <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
 
-            <div class="text-center" style="margin-top:12em;">
-                <h1 class="mx-auto my-0 text-uppercase" style="font-size:4em;">NEW Report</h1>
+            <div class="text-center" style="margin-top:3em;">
+                <h1 class="mx-auto my-0 text-uppercase" style="font-size:4em;">NEW REPORT</h1>
                 <form style="color:white; text-align:left;" method="POST" action="/report">
                   <!-- Search input-->
                   <div class="form-group">
@@ -26,6 +42,7 @@
                         <input type="radio" name="type" id="type-0" value="Discrimination" checked="checked">
                         Discrimination
                       </label> 
+                      <br>
                       <label class="radio-inline" for="type-1">
                         <input type="radio" name="type" id="type-1" value="Racial Profiling">
                         Racial Profiling
@@ -43,10 +60,12 @@
                         <input type="radio" name="type" id="type-4" value="Robbery/ Theft">
                         Robbery/ Theft
                       </label> 
+                      <br>
                       <label class="radio-inline" for="type-5">
                         <input type="radio" name="type" id="type-5" value="House Breaking">
                         House Breaking
                       </label> 
+                      <br>
                       <label class="radio-inline" for="type-6">
                         <input type="radio" name="type" id="type-6" value="Assault">
                         Assault
@@ -72,15 +91,15 @@
                   <!-- Button -->
                     <!-- keep this button inside the form tag -->
                     <label class="control-label" for="Submit"></label>
-                    <div class="col-md-4">
-                      <button id="Submit" name="Submit" class="btn btn-primary">Submit</button>
+                    <div>
+                      <button id="Submit" name="Submit" class="btn btn-primary" style="margin-left: 140px;">Submit</button>
                     </div>
                 </form>
                 <!-- Back To Profile Button -->
                     <label class="control-label" for="Submit"></label>
-                    <div class="col-md-4">
-                      <a id="Back" name="Back" class="btn btn-primary" href="{{ url_for('profile') }}">Back to Profile</a>
-                    </div>
+                    <div>
+                      <a id="Back" name="Back" style="width:250px; margin-left:80px;" class="btn btn-primary" href="{{ url_for('profile') }}">Back to Profile</a>
+                    </div>  
             </div>
         </div>
     </div>
