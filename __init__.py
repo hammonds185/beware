@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_behind_proxy import FlaskBehindProxy
+from flask_session import Session
 import os
 
 app = Flask(__name__)
@@ -12,3 +13,4 @@ app.config["SESSION_TYPE"] = "filesystem"
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app) 
 proxied = FlaskBehindProxy(app)
+session = Session(app)

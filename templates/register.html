@@ -71,7 +71,14 @@
                 </div>
             
               <br/>
-              <button type="submit" class="btn btn-light" style="margin-bottom: 10%;">
+
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+              <p style="text-align:center; margin:-20px; color:red;"">{{ messages[-1] }} </p>
+              {% endif %}
+              {% endwith %}
+
+              <button type="submit" class="btn btn-light" style="margin-top:5%; margin-bottom:15%;">
               <i class="fa fa-user-plus"></i>&nbspRegister
               </button>
 

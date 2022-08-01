@@ -8,14 +8,13 @@ import requests
 import os
 from datetime import datetime
 
-Session(app)
 
 def configure():
     load_dotenv()
 
 @app.route("/")
 def home():
-    return render_template('home.html')  
+    return render_template('home.html')
 
 @app.route("/bewaremap")
 def first_map():
@@ -51,7 +50,7 @@ def login():
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             flash(f'Logging you in', 'success')
             session['username'] = user.username
-            return redirect(url_for('home'))
+            return redirect(url_for('profile'))
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', form=form)
@@ -75,15 +74,13 @@ def register():
         except:
             flash('username or email taken, try again')
             return render_template('register.html', title='Register', form=form)
-        db.session.add(user)
-        db.session.commit()
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
 @app.route("/myprofile")
 def profile():
     if session.get('username'):
-        return render_template('profile.html') 
+        return render_template('profile.html', values = Report.query.all()) 
     else:
         return redirect(url_for('home'))
 
