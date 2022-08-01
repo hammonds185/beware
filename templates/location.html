@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block input %}
+<script>
+    let autocomplete;
+    function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(document.getElementById("input"), 
+        {
+            componentRestrictions: {'country': ['us']},
+            fields: ['plae_id', 'geometry', 'name']
+        });
+    }
+</script>
+{% endblock %}
+
+{% block masthead %} 
+<!-- Masthead-->
+<header class="mastheadformap">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Enter a location</h1> <br>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin: 50px; text-align: center;">
+        <form method="POST">
+            <input id = "input" class="addy" placeholder = "..." type = 'text' name="location">   
+        </form>
+    </div>
+    
+</header>
+    
+{% endblock %}
+
+{% block url %}
+<script async src={{autocomplete_src}}></script>
+{% endblock %}
