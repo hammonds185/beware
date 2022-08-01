@@ -88,15 +88,32 @@ def profile():
 def report(): 
     if session.get('username'):   
         if request.method == "POST":
-            #get info from form
+            # get info from form
             where = request.form.get("where")
             thetype = request.form.get("type")
             date = request.form.get("date")
             description = request.form.get("description")
-            #make datetime object
+            # make datetime object
             dto = datetime.strptime(date, '%Y-%m-%d').date()
-            # create report for database
-            report = Report(address = where, incident = thetype, date = dto, description = description)
+            # get Lat and long
+            params = {
+                'key': os.getenv('API_KEY'),
+                'address': where
+            }
+            base_url = 'https://maps.googleapis.com/maps/api/geocode/json?'
+            response = requests.get(base_url, params=params)
+            data = response.json()
+            if data['status'] == 'OK':
+                result = data['results'][0]
+                location = result['geometry']['location']
+                lat = location['lat']
+                lng = location['lng']
+                # create report for database
+                report = Report(address = where, incident = thetype, date = dto, description = description, latitude = lat, longitude = lng, username = session['username'])
+            else:
+                # will make do something else
+                return "address is invalid"
+                
             #### for me and my confirmation only ####
             print(request.form.get("where"))
             print(request.form.get("type"))
@@ -107,12 +124,12 @@ def report():
             db.session.add(report)
             db.session.commit()
             #### for me and my confirmation only ####
-            print(request.form.get("description"))
+
             print(report)
             print(Report.query.all())
             #### end for me and my confirmation only. ####
             # open profile page when successful
-            return render_template('profile.html', values=Report.query.all())
+            return render_template('profile.html', values=Report.query.all(), user_reports= Report.query.filter_by(username='peter').all())
         return render_template('report.html')
     else:
         return redirect(url_for('home'))
