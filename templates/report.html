@@ -7,22 +7,22 @@
 <header class="masthead">
     <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
-            <div class="text-center" ">
-                <h1 class="mx-auto my-0 text-uppercase">NEW Report</h1>
+            <div class="text-center" style="margin-top:12em;">
+                <h1 class="mx-auto my-0 text-uppercase" style="font-size:4em;">NEW Report</h1>
                 <form class="form-horizontal" style="color:white; text-align:left;">
-                  <fieldset>
+                  
                   <!-- Search input-->
                   <div class="form-group">
                     <label class="control-label" for="Where?">Where?</label>
-                    <div class="col-md-8" >
-                      <input id="Where?" name="Where?" type="search" placeholder="123 Sesame Street" class="form-control input-md" required="required" aria-required="true" style="width:100%;>
+                    <div class="col-md-8">
+                      <input id="Where?" name="Where?" type="search" placeholder="123 Sesame Street" class="form-control input-md" required="required" aria-required="true">
                     </div>
                   </div>
 
                   <!-- Multiple Radios (inline) -->
                   <div class="form-group">
                     <label class="control-label" for="type">Type?</label>
-                    <div class="incident-types" style="width:auto margin-left:10px; margin-right:10px;"> 
+                    <div class="incident-types" style="width:auto; margin-left:10px; margin-right:10px;"> 
                       <label class="radio-inline" for="type-0">
                         <input type="radio" name="type" id="type-0" value="Discrimination" checked="checked">
                         Discrimination
@@ -70,28 +70,21 @@
                       <textarea class="form-control" id="description" name="description"></textarea>
                     </div>
                   </div>
-
-                  <!-- Button -->
-                  <div class="form-group">
-                    <label class="control-label" for="Submit"></label>
-                    <div class="col-md-4">
-                      <button id="Submit" name="Submit" class="btn btn-inverse">Submit</button>
-                    </div>
-                  </div>
-                  <!-- Back To Profile Button -->
-                  <div class="form-group">
-                    <label class="control-label" for="Submit"></label>
-                    <div class="col-md-4">
-                      <button id="Back" name="Back" class="btn btn-inverse">Back to Profile</button>
-                    </div>
-                  </div>
-
-                  </fieldset>
                 </form>
+                
+                <!-- Button -->
+                    <label class="control-label" for="Submit"></label>
+                    <div class="col-md-4">
+                      <button id="Submit" name="Submit" class="btn btn-primary">Submit</button>
+                    </div>
+                 
+                  <!-- Back To Profile Button -->
+                    <label class="control-label" for="Submit"></label>
+                    <div class="col-md-4">
+                      <button id="Back" name="Back" class="btn btn-primary">Back to Profile</button>
+                    </div>
             </div>
         </div>
     </div>
-
-
 </header>
 {% endblock %}
