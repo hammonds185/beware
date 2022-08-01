@@ -35,27 +35,35 @@
     var icons = {
     robbery: {
       icon: iconBase + "shapes/dollar.png",
+      name: "Robbery/Theft",
     },
     housebreaking: {
       icon: iconBase + "shapes/homegardenbusiness.png",
+      name: "House Breaking",
     },
     police: {
       icon: iconBase + "shapes/police.png",
+      name: "Unwarranted Police Encounter",
     },
     discrimination: {
       icon: "/static/scale.png",
+      name: "Discrimination",
     },
     racial_profiling: {
       icon:iconBase +"shapes/caution.png" ,
+      name: "Racial Profiling",
     },
     customer_service: {
       icon:"/static/customer.png" ,
+      name: "Bad Customer Service",
     },
     car_accident: {
       icon: iconBase + "pal4/icon15.png",
+      name: "Car Accident",
     },
     assault: {
       icon: "/static/punch.png",
+      name: "Assault",
     },
   };
 
@@ -74,7 +82,7 @@
         {% for value in values %}
             contentString = 
                 '<div>' +
-                '<h3> ' + '{{ value.incident }}'+ '</h3>' +
+                '<h3> ' + icons['{{ value.incident }}'].name + '</h3>' +
                 '<h4> ' + '{{ value.address }}' + '</h3>' +
                 '<h4> ' + '{{ value.date }}' + '</h4>' +  
                 '<p> '  + '{{ value.description }}' + '</p>' +
