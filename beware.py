@@ -36,6 +36,9 @@ def beware_map():
         location = result['geometry']['location']
         LAT = location['lat']
         LNG = location['lng']
+        print("LAT and LNG")
+        print(LAT)
+        print(LNG)
     else:
         return "address is invalid"
     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = "https://maps.googleapis.com/maps/api/js?key=" + os.getenv('API_KEY') + "&callback=initMap") 
