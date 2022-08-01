@@ -82,9 +82,9 @@
         {% for value in values %}
             contentString = 
                 '<div>' +
-                '<h3> ' + icons['{{ value.incident }}'].name + '</h3>' +
-                '<h4> ' + '{{ value.address }}' + '</h3>' +
-                '<h4> ' + '{{ value.date }}' + '</h4>' +  
+                '<h5> ' + icons['{{ value.incident }}'].name + '</h5>' +
+                '<p><b> ' + '<b>{{ value.address }}</b>' + '</b>' +
+                '<br><b>' + '<b>Date: {{ value.date }}</b>' + '</b></p>' +  
                 '<p> '  + '{{ value.description }}' + '</p>' +
                 '</div>'
             
