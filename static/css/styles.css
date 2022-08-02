@@ -11806,20 +11806,15 @@ li {
 }
 @media all and (max-width: 767px) {
   .table-header {
-<<<<<<< HEAD
     display: none;
   }
   .table-row{
-    
   }
   li {
     display: block;
   }
   .col {
-    
     flex-basis: 100%;
-    
-=======
     background-color: #95A5A6;
     font-size: 14px;
     text-transform: uppercase;
@@ -11848,7 +11843,6 @@ li {
   .col-5 {
     flex-basis: 5%;
     margin: auto;
->>>>>>> 81817932e52cba36fc20c568985a50532584e581
   }
   .col {
     display: flex;
@@ -11861,7 +11855,7 @@ li {
       text-align: right;
     }
   }
-<<<<<<< HEAD
+
 }
 .delete{
         height:20px;
@@ -11872,23 +11866,6 @@ li {
         padding: 0px;
         color: white; 
     }
-=======
-  .delete{
-          height:20px;
-          width:20px;
-          background-color: red;
-          text-align: center;
-          border: 5px;
-          padding: 0px;
-          color: white;
-<<<<<<< HEAD
-          
-          
-      }
-=======
-      }
->>>>>>> 81817932e52cba36fc20c568985a50532584e581
-
 .loading-dots{
   display: inline-block;
   height: 20px;
@@ -11927,4 +11904,4 @@ li {
 .loading-dots .square:nth-child(3){
   animation-delay:0.75s;
 }
->>>>>>> 5e5a85b2675b06f81f996c8402c22f9b297c624a
+
