@@ -13,7 +13,9 @@ if API_KEY == None:
     API_KEY = ""
 autocomplete_src = "https://maps.googleapis.com/maps/api/js?key=" + API_KEY + "&libraries=places&callback=initAutocomplete"
 map_src = "https://maps.googleapis.com/maps/api/js?key=" + API_KEY + "&callback=initMap"
-
+types = {"robbery":"Robbery/Theft","housebreaking":"House Breaking", "police": "Unwarranted Police Encounter",
+        "discrimination":"Discrimination","racial_profiling":"Racial Profiling", "customer_service":"Bad Customer Service",
+        "car_accident":"Car Accident", "assault":"Assault" }
 def configure():
     load_dotenv()
 
@@ -86,7 +88,7 @@ def register():
 @app.route("/myprofile")
 def profile():
     if session.get('username'):
-        return render_template('profile.html', user_reports= Report.query.filter_by(username=session['username']).all(), username= session['username']) 
+        return render_template('profile.html', user_reports= Report.query.filter_by(username=session['username']).all(), username= session['username'], types = types) 
     else:
         return redirect(url_for('home'))
 
@@ -134,7 +136,7 @@ def report():
             print(Report.query.all())
             #### end for me and my confirmation only. ####
             # open profile page when successful
-            return render_template('profile.html', user_reports= Report.query.filter_by(username=session['username']).all(), username= session['username'])
+            return render_template('profile.html', user_reports= Report.query.filter_by(username=session['username']).all(), username= session['username'],types = types)
         return render_template('report.html', autocomplete_src = autocomplete_src, values = Report.query.all())
     else:
         return redirect(url_for('home'))
