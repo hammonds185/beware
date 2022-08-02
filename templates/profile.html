@@ -50,7 +50,17 @@
                         <div class="col col-2" data-label="Incident">{{types[item.incident]}}</div>
                         <div class="col col-3" data-label="Address">{{item.address}}</div>
                         <div class="col col-4" data-label="Descrption">{{item.description}}</div>
-                        <button type="button" class="delete" onclick="alert('Will Delete')">X</button></span></a>
+                        <script>
+                            function delete_request(itemId) {
+                            fetch("/delete", {
+                                method: "POST",
+                                body: JSON.stringify({ noteId: itemId }),
+                            }).then((_res) => {
+                                window.location.href = "/myprofile";
+                            });
+                            }
+                        </script>
+                        <button type="button" class="col-5 delete"  onclick="delete_request({{item.id}})">X</button></span></a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -58,11 +68,6 @@
             </div>
         </div>
     </div> 
-    <a class="btn btn-primary" style="margin: 0;
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);" href="{{ url_for('report') }}">Click to report an incident</a>
+    <a class="btn btn-primary" style="margin-left: auto; margin-right: auto" href="{{ url_for('report') }}">Click to report an incident</a>
 </header>
 {% endblock %}

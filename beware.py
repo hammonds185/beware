@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, abort, request, flash, session
+from flask import Flask, render_template, redirect, url_for, abort, request, flash, session, jsonify
 from flask_session import Session
 from dotenv import load_dotenv
 from __init__ import app, db, bcrypt
@@ -7,6 +7,7 @@ from model import *
 import requests
 import os
 from datetime import datetime
+import json
 
 API_KEY = os.getenv('API_KEY')
 if API_KEY == None:
@@ -140,6 +141,18 @@ def report():
         return render_template('report.html', autocomplete_src = autocomplete_src, values = Report.query.all())
     else:
         return redirect(url_for('home'))
+
+@app.route('/delete', methods=['POST'])
+def delete():
+    note = json.loads(request.data)
+    noteId = note['noteId']
+    note = Report.query.get(noteId)
+    print("hey")
+    if note: 
+        db.session.delete(note)
+        db.session.commit()
+
+    return jsonify({})
 
 if __name__ == '__main__': 
     configure()
