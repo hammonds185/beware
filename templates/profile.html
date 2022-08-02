@@ -47,7 +47,7 @@
                         {% for item in user_reports %}
                         <li class="table-row">
                         <div class="col col-1" data-label="Date">{{item.date}}</div>
-                        <div class="col col-2" data-label="Incident">{{item.incident}}</div>
+                        <div class="col col-2" data-label="Incident">{{types[item.incident]}}</div>
                         <div class="col col-3" data-label="Address">{{item.address}}</div>
                         <div class="col col-4" data-label="Descrption">{{item.description}}</div>
                         <button type="button" class="delete" onclick="alert('Will Delete')">X</button></span></a>
