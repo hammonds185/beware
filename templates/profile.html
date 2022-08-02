@@ -27,11 +27,17 @@
 
 {% block masthead %} 
 <!-- Masthead-->
+<style>
+    header {
+        height: auto !important;
+    }
+</style>
+
 <header class="masthead">
     <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
             <div class="text-center">
-                <h1 class="mx-auto my-0 text-uppercase">{{username}}</h1>
+                <h1 class="mx-auto my-0 text-uppercase" style="font-size:4em; margin-top:50px!important;">{{username}}</h1>
                 
                 <!-- list reports for courtney testing purposes only-->  
                 <div class="user-report-table" >
