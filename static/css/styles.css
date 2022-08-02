@@ -11761,7 +11761,7 @@ body {
 
 
 .user-report-table {
-  max-width: 1000px;
+  width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 10px;
@@ -11788,18 +11788,23 @@ body {
   }
   .col-1 {
     flex-basis: 10%;
+    margin: auto;
   }
   .col-2 {
     flex-basis: 20%;
+    margin: auto;
   }
   .col-3 {
     flex-basis: 25%;
+    margin: auto;
   }
   .col-4 {
     flex-basis: 25%;
+    margin: auto;
   }
   .col-5 {
     flex-basis: 5%;
+    margin: auto;
   }
   
   @media all and (max-width: 767px) {
@@ -11834,6 +11839,9 @@ body {
           width:20px;
           background-color: red;
           text-align: center;
-          border: none;
+          border: 5px;
+          padding: 0px;
           color: white;
+          
+          
       }
