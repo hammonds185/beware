@@ -10,6 +10,7 @@ app.config['SECRET_KEY'] = os.urandom(32)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
+app.config['UPLOAD_FOLDER'] = "static/uploads"
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app) 
 proxied = FlaskBehindProxy(app)
