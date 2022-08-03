@@ -59,13 +59,27 @@
     margin-bottom: 10px;
   }
 </style>
+
+<script>function validateFileType(input){
+  var fileName = input.value,
+      idxDot = fileName.lastIndexOf(".") + 1,
+      extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+  if (["jpg", "jpeg", "png"].includes(extFile)){
+      //TO DO
+  } else {
+      alert("Only jpg/jpeg and png files are allowed!");
+      input.value = ""
+  }
+}
+
+</script>
 <header class="masthead">
     <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
 
             <div class="text-center" style="margin-top:3em;">
                 <h1 class="mx-auto my-0 text-uppercase" style="font-size:4em; margin-top:40px!important;">NEW REPORT</h1>
-                <form style="color:white; text-align:left;" method="POST" action="/report">
+                <form style="color:white; text-align:left;" method="POST" action="/report" enctype=multipart/form-data>
                   <!-- Search input-->
                   <div class="form-group">
                     <label class="control-label" for="Where?">Where?</label>
@@ -126,6 +140,9 @@
                     <div class="col-md-4">                     
                       <textarea class="form-control" id="description" name="description" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
                     </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="file" name= "file" id="file" accept=".jpg,.jpeg,.png" onchange="validateFileType(this)">
                   </div>
                   <!-- Button -->
                     <!-- keep this button inside the form tag -->

@@ -8,7 +8,10 @@ import requests
 import os
 from datetime import datetime
 import json
+from werkzeug.utils import secure_filename
+from uuid import uuid4
 
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 API_KEY = os.getenv('API_KEY')
 if API_KEY == None:
     API_KEY = ""
@@ -93,6 +96,10 @@ def profile():
     else:
         return redirect(url_for('home'))
 
+def make_unique(string):
+    ident = uuid4().__str__()
+    return f"{ident}-{string}"
+
 @app.route("/report", methods=['POST', 'GET'])
 def report(): 
     if session.get('username'):   
@@ -117,8 +124,21 @@ def report():
                 location = result['geometry']['location']
                 lat = location['lat']
                 lng = location['lng']
+                filename = None
+                # image file
+                if 'file' in request.files:
+                    file = request.files['file']
+                    if file.filename == '':
+                        # flash('No selected file')
+                        print("no file selected")
+                    else:
+                        print("new file name")
+                        original_filename = secure_filename(file.filename)
+                        filename = make_unique(original_filename)
+                        file.save(os.path.join(app.root_path,app.config['UPLOAD_FOLDER'], filename))
+
                 # create report for database
-                report = Report(address = where, incident = thetype, date = dto, description = description, latitude = lat, longitude = lng, username = session['username'])
+                report = Report(address = where, incident = thetype, date = dto, description = description, latitude = lat, longitude = lng, username = session['username'],image_file=filename)
             else:
                 # will make do something else
                 return "address is invalid"
