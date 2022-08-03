@@ -38,6 +38,7 @@
         <div class="d-flex justify-content-center">
             <div class="text-center">
                 <h1 class="mx-auto my-0 text-uppercase" style="font-size:4em; margin-top:50px!important;">{{username}}</h1>
+                <a class="btn btn-primary" style="margin-left: auto; margin-right: auto" href="{{ url_for('report') }}">Click to report an incident</a>
                 
                 <!-- list reports for courtney testing purposes only-->  
                 <div class="user-report-table" >
@@ -71,7 +72,6 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <a class="btn btn-primary" style="margin-left: auto; margin-right: auto" href="{{ url_for('report') }}">Click to report an incident</a>
             </div>
         </div>
     </div> 
