@@ -74,24 +74,15 @@
         var mapTypeStylesArray = [
         {
             "featureType": "administrative",
-            "elementType": "labels.text.fill",
-            "stylers": [
-                {
-                    "color": "#444444"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape",
             "elementType": "all",
             "stylers": [
                 {
-                    "color": "#f2f2f2"
+                    "saturation": "-100"
                 }
             ]
         },
         {
-            "featureType": "poi",
+            "featureType": "administrative.province",
             "elementType": "all",
             "stylers": [
                 {
@@ -100,14 +91,41 @@
             ]
         },
         {
-            "featureType": "road",
+            "featureType": "landscape",
             "elementType": "all",
             "stylers": [
                 {
                     "saturation": -100
                 },
                 {
-                    "lightness": 45
+                    "lightness": 65
+                },
+                {
+                    "visibility": "on"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "saturation": -100
+                },
+                {
+                    "lightness": "50"
+                },
+                {
+                    "visibility": "simplified"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "saturation": "-100"
                 }
             ]
         },
@@ -122,10 +140,19 @@
         },
         {
             "featureType": "road.arterial",
-            "elementType": "labels.icon",
+            "elementType": "all",
             "stylers": [
                 {
-                    "visibility": "off"
+                    "lightness": "30"
+                }
+            ]
+        },
+        {
+            "featureType": "road.local",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "lightness": "40"
                 }
             ]
         },
@@ -134,7 +161,25 @@
             "elementType": "all",
             "stylers": [
                 {
-                    "visibility": "off"
+                    "saturation": -100
+                },
+                {
+                    "visibility": "simplified"
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "hue": "#ffff00"
+                },
+                {
+                    "lightness": -25
+                },
+                {
+                    "saturation": -97
                 }
             ]
         },
