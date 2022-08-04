@@ -110,7 +110,8 @@ def report():
             date = request.form.get("date")
             description = request.form.get("description")
             # make datetime object
-            dto = datetime.strptime(date, '%Y-%m-%d').date()
+            dto = datetime.strptime(date, '%Y-%m-%dT%H:%M')
+            print("date:" + str(dto))
             # get Lat and long
             params = {
                 'key': os.getenv('API_KEY'),
