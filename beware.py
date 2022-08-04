@@ -223,6 +223,40 @@ def missing_person():
 def other():
      return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='other').all()) 
 
+
+# Buttons Dark mode
+@app.route("/show_all_dark")
+def show_all_dark():
+     return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.all()) 
+@app.route("/robbery_dark")
+def robbery_dark():
+     return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='robbery').all()) 
+@app.route("/burglary_dark")
+def burglary_dark():
+     return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='burglary').all()) 
+@app.route("/assault_dark")
+def assault_dark():
+     return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='assault').all()) 
+@app.route("/hate_crime_dark")
+def hate_crime_dark():
+     return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='discrimination').all()) 
+@app.route("/racial_profiling_dark")
+def racial_profiling_dark():
+     return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='racial_profiling').all()) 
+@app.route("/bad_customer_service_dark")
+def bad_customer_service_dark():
+     return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='customer_service').all()) 
+@app.route("/car_accident_dark")
+def car_accident_dark():
+     return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='car_accident').all()) 
+@app.route("/missing_person_dark")
+def missing_person_dark():
+     return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='police').all()) 
+@app.route("/other_dark")
+def other_dark():
+     return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='other').all()) 
+
+
 if __name__ == '__main__': 
     configure()
     app.run(debug=True, host="0.0.0.0")
