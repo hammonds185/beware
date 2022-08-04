@@ -21,6 +21,11 @@ types = {"robbery":"Robbery/Theft","burglary":"Burglary", "police": "Missing Per
         "discrimination":"Hate Crime","racial_profiling":"Racial Profiling", "customer_service":"Bad Customer Service",
         "car_accident":"Car Accident", "assault":"Assault", "other":"Other" }
 
+
+#Default LAT and LNG is NY
+LNG = -74.0060
+LAT = 40.7128
+
 def configure():
     load_dotenv()
 
@@ -183,8 +188,40 @@ def delete():
     if note: 
         db.session.delete(note)
         db.session.commit()
-
     return jsonify({})
+
+
+# Buttons Redirect 
+@app.route("/show_all")
+def show_all():
+     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.all()) 
+@app.route("/robbery")
+def robbery():
+     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='robbery').all()) 
+@app.route("/burglary")
+def burglary():
+     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='burglary').all()) 
+@app.route("/assault")
+def assault():
+     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='assault').all()) 
+@app.route("/hate_crime")
+def hate_crime():
+     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='discrimination').all()) 
+@app.route("/racial_profiling")
+def racial_profiling():
+     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='racial_profiling').all()) 
+@app.route("/bad_customer_service")
+def bad_customer_service():
+     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='customer_service').all()) 
+@app.route("/car_accident")
+def car_accident():
+     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='car_accident').all()) 
+@app.route("/missing_person")
+def missing_person():
+     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='police').all()) 
+@app.route("/other")
+def other():
+     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.filter_by(incident='other').all()) 
 
 if __name__ == '__main__': 
     configure()

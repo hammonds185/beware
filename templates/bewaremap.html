@@ -241,8 +241,6 @@
             infowindow.open(map, marker);
             }
         })(marker));
-        
-        
     {%endfor%}
     
     
@@ -337,9 +335,22 @@
             </div>
         </div>
     </div>
+    <br><br>
+    <div style="text-align:center; border: 2px solid black; margin:50px; padding: 20px">
+        <a class="btn btn-primary" href="{{ url_for('show_all') }}" style="background-color:rgb(221, 221, 221); color:black">Show All</a>
+        <a class="btn btn-primary" href="{{ url_for('robbery') }}" style="background-color:rgb(133, 100, 182)" >Robbery</a>
+        <a class="btn btn-primary" href="{{ url_for('burglary') }}" style="background-color:rgb(133, 100, 182)">Burglary</a>
+        <a class="btn btn-primary" href="{{ url_for('assault') }}" style="background-color:rgb(182, 100, 116)">Assault</a>
+        <a class="btn btn-primary" href="{{ url_for('hate_crime') }}" style="background-color:rgb(182, 100, 116)">Hate Crime</a>
+        <a class="btn btn-primary" href="{{ url_for('racial_profiling') }}" style="background-color:rgb(182, 100, 116)">Racial Profiling</a>
+        <a class="btn btn-primary" href="{{ url_for('bad_customer_service') }}" style="background-color:rgb(147, 226, 150)">Bad Customer Service</a>
+        <a class="btn btn-primary" href="{{ url_for('car_accident') }}" style="background-color:rgb(75, 69, 196)">Car Accident</a>
+        <a class="btn btn-primary" href="{{ url_for('missing_person') }}" style="background-color:rgb(223, 240, 174); color:black">Missing Person</a>
+        <a class="btn btn-primary" href="{{ url_for('other') }}">Other</a>
+</div>
     <br><br><br>
     <h2 style="text-align:center; color: white;"> Key </h2>
-    <div style="text-align:center; background-color:white; border: 2px solid black;margin:50px; padding: 20px">
+    <div style="text-align:center; background-color:white; border: 2px solid black; margin: 50px; padding: 20px">
             <img src= '/static/icons/robbery.png' style="width:70px;height:70px"> Robbery/Theft &nbsp;&nbsp;
             <img src= '/static/icons/burglary.png' style="width:70px;height:70px"> Burglary &nbsp;&nbsp;
             <img src= '/static/icons/person.png' style="width:70px;height:70px"> Missing Person &nbsp;&nbsp;
