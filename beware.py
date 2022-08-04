@@ -20,6 +20,7 @@ map_src = "https://maps.googleapis.com/maps/api/js?key=" + API_KEY + "&callback=
 types = {"robbery":"Robbery/Theft","burglary":"Burglary", "police": "Missing Person",
         "discrimination":"Hate Crime","racial_profiling":"Racial Profiling", "customer_service":"Bad Customer Service",
         "car_accident":"Car Accident", "assault":"Assault", "other":"Other" }
+
 def configure():
     load_dotenv()
 
@@ -29,7 +30,6 @@ def home():
 
 @app.route("/bewaremap")
 def first_map():
-    # default map is NY
     return render_template('location.html', autocomplete_src = autocomplete_src, values = Report.query.all())
 
 @app.route("/bewaremap", methods=['POST', 'GET'])
@@ -45,11 +45,22 @@ def beware_map():
     if data['status'] == 'OK':
         result = data['results'][0]
         location = result['geometry']['location']
+        global LAT 
         LAT = location['lat']
+        global LNG 
         LNG = location['lng']
     else:
         return "address is invalid"
     return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.all()) 
+
+@app.route("/bewaremaplight")
+def beware_map_light():
+    return render_template('bewaremap.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.all()) 
+
+
+@app.route("/bewaremapdark")
+def beware_map_dark():
+    return render_template('bewaremapdark.html', latitude = LAT, longitude = LNG, map_src = map_src, values = Report.query.all()) 
 
 
 @app.route('/login', methods=['GET', 'POST'])
