@@ -17,7 +17,7 @@ if API_KEY == None:
     API_KEY = ""
 autocomplete_src = "https://maps.googleapis.com/maps/api/js?key=" + API_KEY + "&libraries=places&callback=initAutocomplete"
 map_src = "https://maps.googleapis.com/maps/api/js?key=" + API_KEY + "&callback=initMap"
-types = {"robbery":"Robbery/Theft","housebreaking":"House Breaking", "police": "Unwarranted Police Encounter",
+types = {"robbery":"Robbery/Theft","burglary":"Burglary", "police": "Unwarranted Police Encounter",
         "discrimination":"Discrimination","racial_profiling":"Racial Profiling", "customer_service":"Bad Customer Service",
         "car_accident":"Car Accident", "assault":"Assault" }
 def configure():
