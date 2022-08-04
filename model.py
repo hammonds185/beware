@@ -13,7 +13,7 @@ class Report(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     address = db.Column(db.String(200), nullable=False)
     incident = db.Column(db.String(50), nullable=False)
-    date = db.Column(db.Date(), nullable=False)
+    date = db.Column(db.DateTime(), nullable=False)
     description = db.Column(db.String(500), nullable=False)
     latitude = db.Column(db.String(10), nullable=False)
     longitude = db.Column(db.String(10), nullable=False)
@@ -24,5 +24,5 @@ class Report(db.Model):
         return f"Report('{self.address}', '{self.incident}','{self.date}', '{self.description}', '{self.latitude}', '{self.longitude}', '{self.username}')"
     
 
-# db.drop_all()
+#db.drop_all()
 db.create_all()
